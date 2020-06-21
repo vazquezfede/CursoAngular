@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,13 @@ export class HomeComponent implements OnInit {
   numero;
   mensaje = "";
   cssGano = "";
-  productos = []
+  productos = {}
 
-  constructor() { 
-    this.productos=  [
-      {"id":"1", "desc":"producto 1"},
-      {"id":"2", "desc":"producto 2"},
-      {"id":"3", "desc":"producto 3"}
-    ]
+  constructor(private productoServ:ProductosService) { 
+    this.productoServ.getAll().subscribe(data=>{
+      console.log(data);
+      this.productos = data;
+    });
   }
   adivinar(){
    

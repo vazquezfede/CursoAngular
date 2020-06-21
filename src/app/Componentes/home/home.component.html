@@ -4,9 +4,11 @@
     <div [class] = "cssGano"> {{mensaje}}</div>
     <div [ngClass] = "{gano: numero == numero_adivinar, perdio: numero != numero_adivinar}"> {{mensaje}}</div>
     <div [appResaltado] ="'brown'">resltando con directiva propia </div>
-    <div *ngIf="numero == numero_adivinar">
+    <div>
         <div *ngFor="let producto of productos">
-            <p>{{producto.id}} - {{producto.desc}}</p>
+            <p>{{producto.id}} - {{producto.name}}</p>
+            <p>{{producto.description}}</p>
+            <!-- <p>{{producto |json}}</p> -->
         </div>
     </div>
 </div>
