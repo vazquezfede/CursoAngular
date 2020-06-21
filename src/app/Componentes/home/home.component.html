@@ -1,0 +1,12 @@
+<div>
+    <input type="text" [(ngModel)] = "numero">
+    <button (click)="adivinar()"> Adivinar </button>
+    <div [class] = "cssGano"> {{mensaje}}</div>
+    <div [ngClass] = "{gano: numero == numero_adivinar, perdio: numero != numero_adivinar}"> {{mensaje}}</div>
+    <div [appResaltado] ="'brown'">resltando con directiva propia </div>
+    <div *ngIf="numero == numero_adivinar">
+        <div *ngFor="let producto of productos">
+            <p>{{producto.id}} - {{producto.desc}}</p>
+        </div>
+    </div>
+</div>
